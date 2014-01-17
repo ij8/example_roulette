@@ -16,9 +16,14 @@ public class Game
     private Wheel myWheel;
     private Bet[] myPossibleBets = 
         {
-            new Bet("Red or Black", 1),
+    		/**
+    		new Bet("Red or Black", 1),
             new Bet("Odd or Even", 1),
             new Bet("Three in a Row", 11),
+            */
+    		new RBBet(),
+    		new OEBet(),
+    		new RowBet()
         };
 
 
@@ -98,11 +103,12 @@ public class Game
      */
     private String placeBet (int whichBet)
     {
-        String result = "";
+    	/**
+        String result;
 
         if (whichBet == 0)
         {
-            result = ConsoleReader.promptOneOf("Please bet", Wheel.BLACK, Wheel.RED);
+        	result = ConsoleReader.promptOneOf("Please bet", Wheel.BLACK, Wheel.RED);
         }
         else if (whichBet == 1)
         {
@@ -115,6 +121,8 @@ public class Game
         System.out.println();
 
         return result;
+        */
+    	return myPossibleBets[whichBet].placeBet();
     }
 
 
